@@ -1,0 +1,3 @@
+"""
+nada alem da verdade
+"""
