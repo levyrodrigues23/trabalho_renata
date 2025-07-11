@@ -1,7 +1,7 @@
 import random
 print("\n\n\nOlá, eu sou o PTP-3000.")
-nome_de_usuario = input("Qual o seu nome? ")
-print(f"\nOlá {nome_de_usuario}!")
+nome_do_usuario = input("Qual o seu nome? ")
+print(f"\nOlá {nome_do_usuario}!")
 print("Vamos jogar pedra papel ou tesoura!\n")
 
 vitorias_do_usuario = 0
@@ -11,15 +11,14 @@ jogar_novamente = "s"
 while jogar_novamente == "s":
   jogadas_permitidas = ("pedra", "papel", "tesoura")
   jogada_usuario = input("Digite pedra, papel ou tesoura \n").lower()
-  for i in jogadas_permitidas:
-    if jogada_usuario not in jogadas_permitidas:
-      print("\nAcho que você digitou errado ):")
-      jogada_usuario = input("Digite pedra, papel ou tesoura \n").lower()
+  while novamente != "s" and novamente != "n":
+      print("Você digitou algo errado! ):")
+      novamente = input("Digite S ou N: ").lower()
 
-  jogada_ptp = random.randint(0,2)
+  jogada_ptp = jogadas_permitidas[random.randint(0,2)]
 
   print(f"\nA sua jogada foi {jogada_usuario}")
-  print(f"A minha jogada foi {jogadas_permitidas[jogada_ptp]}\n")
+  print(f"A minha jogada foi {jogada_ptp}\n")
 
   #Possibilidades em que o usuário ganhou:
   usuario_ganhou = jogada_usuario == "papel" and jogada_ptp==0 or jogada_usuario == "pedra" and jogada_ptp==2 or jogada_usuario == "tesoura" and jogada_ptp == 1
@@ -31,7 +30,7 @@ while jogar_novamente == "s":
   if empate:
     print("Empatamos!")
   elif usuario_ganhou:
-    print("Parabéns! Você ganhou!")
+    print(f"Parabéns{nome_do_usuario}! Você ganhou!")
     vitorias_do_usuario = vitorias_do_usuario + 1
   else:
     print("Eu ganhei!")
@@ -49,4 +48,4 @@ while jogar_novamente == "s":
   if novamente == "n":
     jogar_novamente="n"
   
-print(f"Foi muito bom jogar com você {nome_de_usuario}!")
+print(f"Foi muito bom jogar com você {nome_do_usuario}!")
